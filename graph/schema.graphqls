@@ -1,0 +1,45 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+type Todo {
+  id: ID!
+  text: String!
+  done: Boolean!
+  user: User!
+}
+
+type User {
+  id: ID!
+  name: String!
+}
+
+type Query {
+  todos: [Todo!]!
+  getCategory(id: ID!): Category
+ 
+}
+
+input NewTodo {
+  text: String!
+  userId: String!
+}
+
+type Mutation {
+  createTodo(input: NewTodo!): Todo!
+  createCategory(input: NewCategory!): Category
+}
+
+input NewCategory {
+  category_name: String!
+  description: String!
+}
+
+type Category {
+    id: ID
+    category_name: String!
+    description: String!
+    created_at: String!
+    updated_at: String!
+}
+
